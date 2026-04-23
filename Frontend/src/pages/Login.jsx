@@ -14,7 +14,7 @@ const Login = () => {
   const submitHandler = async (e) => {
     e.preventDefault();
     try {
-      const { data } = await axios.post('http://localhost:5000/api/login', { email, password });
+      const { data } = await axios.post('/api/login', { email, password });
       login(data);
       navigate('/dashboard');
     } catch (err) {

@@ -12,7 +12,7 @@ const Dashboard = () => {
 
     const fetchItems = async () => {
         try {
-            const url = searchTerm ? `http://localhost:5000/api/items/search?name=${searchTerm}` : 'http://localhost:5000/api/items';
+            const url = searchTerm ? `/api/items/search?name=${searchTerm}` : '/api/items';
             const { data } = await axios.get(url);
             setItems(data);
         } catch (err) {
@@ -30,7 +30,7 @@ const Dashboard = () => {
     const handleDelete = async (id) => {
         if(window.confirm("Are you sure you want to delete this item?")) {
             try {
-                await axios.delete(`http://localhost:5000/api/items/${id}`);
+                await axios.delete(`/api/items/${id}`);
                 fetchItems();
             } catch (err) {
                 console.error(err);
@@ -42,9 +42,9 @@ const Dashboard = () => {
         e.preventDefault();
         try {
             if (formData.id) {
-                await axios.put(`http://localhost:5000/api/items/${formData.id}`, formData);
+                await axios.put(`/api/items/${formData.id}`, formData);
             } else {
-                await axios.post('http://localhost:5000/api/items', formData);
+                await axios.post('/api/items', formData);
             }
             setShowModal(false);
             setFormData({ itemName: '', description: '', type: 'Lost', location: '', contactInfo: '', id: null });

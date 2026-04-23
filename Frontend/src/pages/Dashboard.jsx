@@ -122,9 +122,9 @@ const Dashboard = () => {
                                             <Card.Title className="fs-5 fw-bold mb-0 text-truncate pe-2" title={item.itemName}>
                                                 {item.itemName}
                                             </Card.Title>
-                                            <span className={item.type === 'Lost' ? 'badge-lost text-white fw-bold' : 'badge-found text-white fw-bold'}>
+                                            <Badge bg={item.type === 'Lost' ? 'danger' : 'success'} className="px-3 py-2 rounded-pill">
                                                 {item.type}
-                                            </span>
+                                            </Badge>
                                         </div>
                                         
                                         <Card.Text className="text-secondary flex-grow-1" style={{fontSize: '0.95rem', lineHeight: '1.5'}}>
